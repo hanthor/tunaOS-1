@@ -1148,6 +1148,14 @@ variants:
     # Friendly alias: same digest also published as ghcr.io/tuna-os/<alias>:<flavor>
     aliases: [debian]
     platforms: ["linux/amd64"]
+    # Blocked on ostree >= 2025.3 (not yet in Debian trixie) — ISO e2e still
+    # fails today (useradd: cannot create directory /home during live
+    # customize, run 31236016676). #641 says this variant stays experimental
+    # until it's green + ISO e2e; the `experimental: true` line was dropped
+    # by 653afc34 along with 5 other variants in an unrelated dracut/bootc
+    # fix, not because the ostree blocker cleared. Do not remove this again
+    # without confirming the ISO gate passes on current code.
+    experimental: true
     flavors:
       # base + gnome carry an arm64 leg solely as the parent chain for
       # gnome-asahi (debian:trixie is multiarch; the bootc toolchain

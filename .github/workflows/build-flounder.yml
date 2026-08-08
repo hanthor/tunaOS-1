@@ -1,7 +1,5 @@
-name: Build Flounder
+name: Build Flounder [experimental]
 on:
-  schedule:
-    - cron: "0 1 * * *"
   workflow_dispatch:
     inputs:
       flavor:
