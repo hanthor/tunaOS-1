@@ -47,6 +47,10 @@ packages:
       # pipewire audio stack intact. Do NOT list xfwm4 (X11, not built for
       # EL10). Volume control comes from the panel's pipewire/pavucontrol path.
       - xfwl4
+      # xfwl4 looks up its default theme through XDG data dirs and panics if
+      # /usr/share/themes/Default/xfwm4/themerc is absent. This data-only
+      # package supplies the xfwm4 assets without pulling in the X11 wm.
+      - xfwm4-themes
       - xfce4-session
       - xfce4-panel
       - xfce4-settings
